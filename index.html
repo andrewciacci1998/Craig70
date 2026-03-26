@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Craig Lucio's 70th Birthday | The Azores</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&family=Pacifico&display=swap');
+
+        :root {
+            --ocean: #0077b6;
+            --ocean-deep: #023e8a;
+            --sand: #f4e8c1;
+            --sunset: #ff6b35;
+            --sunset-glow: #ffa62b;
+            --palm: #2d6a4f;
+            --palm-light: #52b788;
+            --sky: #caf0f8;
+            --white: #ffffff;
+            --dark: #1a1a2e;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            color: var(--dark);
+            overflow-x: hidden;
+            background: var(--sand);
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: rgba(0, 119, 182, 0.92);
+            backdrop-filter: blur(12px);
+            padding: 0.8rem 2rem;
+            display: flex; justify-content: center; gap: 1.8rem; flex-wrap: wrap;
+        }
+        nav a {
+            color: var(--white); text-decoration: none;
+            font-size: 0.95rem; font-weight: 700;
+            letter-spacing: 1px; text-transform: uppercase;
+            transition: color 0.3s;
+        }
+        nav a:hover { color: var(--sunset-glow); }
+
+        /* ── HERO ── */
+        .hero {
+            position: relative; min-height: 100vh;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center; text-align: center;
+            background:
+                url('photos/craig-surfing-ai.png') center/cover no-repeat;
+            color: var(--white); padding: 6rem 2rem 4rem;
+            overflow: hidden;
+        }
+        /* cinematic color overlay — lighter to let Craig's surf photo shine */
+        .hero::before {
+            content: ''; position: absolute; inset: 0; z-index: 1;
+            background:
+                linear-gradient(180deg,
+                    rgba(2,62,138,0.35) 0%,
+                    rgba(0,0,0,0.1) 40%,
+                    rgba(0,0,0,0.15) 60%,
+                    rgba(255,107,53,0.4) 100%);
+        }
+        .hero-badge-standalone {
+            background: var(--sunset); color: white;
+            font-family: 'Pacifico', cursive; font-size: 1.3rem;
+            padding: 0.5rem 1.8rem; border-radius: 30px;
+            box-shadow: 0 4px 20px rgba(255,107,53,0.5);
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+        /* sunlight flare */
+        .hero::after {
+            content: ''; position: absolute; z-index: 1;
+            top: -20%; right: -10%;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(255,166,43,0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: sunPulse 6s ease-in-out infinite;
+        }
+        @keyframes sunPulse {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.15); opacity: 1; }
+        }
+        .hero > * { position: relative; z-index: 2; }
+
+        /* Craig portrait — surfboard-shaped frame */
+        .hero-portrait-wrap {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+        .hero-portrait {
+            width: 200px; height: 260px;
+            border-radius: 100px 100px 60px 60px;
+            object-fit: cover; object-position: center top;
+            border: 5px solid rgba(255,255,255,0.7);
+            box-shadow:
+                0 8px 40px rgba(0,0,0,0.35),
+                0 0 80px rgba(255,166,43,0.2);
+            animation: float 4s ease-in-out infinite;
+        }
+        .hero-portrait-ring {
+            position: absolute; inset: -12px;
+            border-radius: 112px 112px 72px 72px;
+            border: 2px solid rgba(255,255,255,0.2);
+            animation: float 4s ease-in-out infinite;
+            animation-delay: -0.5s;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-14px); }
+        }
+        .hero-badge {
+            position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
+            background: var(--sunset); color: white;
+            font-family: 'Pacifico', cursive; font-size: 1rem;
+            padding: 0.3rem 1.2rem; border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(255,107,53,0.4);
+            white-space: nowrap;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3.2rem, 9vw, 7rem);
+            font-weight: 900; line-height: 1.05;
+            text-shadow: 2px 4px 20px rgba(0,0,0,0.5);
+            letter-spacing: -1px;
+        }
+        .hero h1 span {
+            font-family: 'Pacifico', cursive; display: block;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--sunset-glow); margin-top: 0.4rem;
+            text-shadow: 2px 3px 15px rgba(255,107,53,0.4);
+        }
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            font-weight: 300; margin-top: 1.2rem;
+            letter-spacing: 3px; text-transform: uppercase;
+            text-shadow: 1px 2px 8px rgba(0,0,0,0.4);
+        }
+        .hero-tagline {
+            margin-top: 1rem; font-size: 1.15rem;
+            font-style: italic; opacity: 0.9;
+            text-shadow: 1px 2px 6px rgba(0,0,0,0.3);
+            max-width: 500px;
+        }
+        .hero-location {
+            margin-top: 1.8rem; font-size: 1.05rem;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(10px);
+            padding: 0.7rem 2rem; border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.2);
+            letter-spacing: 1px;
+        }
+
+        /* animated wave at bottom of hero */
+        .hero-waves {
+            position: absolute; bottom: 0; left: 0; width: 100%;
+            z-index: 2; line-height: 0;
+        }
+        .hero-waves svg {
+            width: 100%; height: auto;
+            min-height: 80px;
+        }
+
+        .scroll-hint {
+            position: absolute; bottom: 5.5rem;
+            animation: bounce 2s infinite; font-size: 2rem; z-index: 3;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+
+        /* ── WIDGETS ── */
+        .widgets {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem; padding: 2.5rem 2rem;
+            max-width: 1200px; margin: -3rem auto 0;
+            position: relative; z-index: 10;
+        }
+        .widget {
+            background: var(--white); border-radius: 16px;
+            padding: 1.5rem; text-align: center;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        .widget:hover { transform: translateY(-4px); }
+        .widget-icon { font-size: 2.2rem; margin-bottom: 0.5rem; }
+        .widget-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; color: #777; margin-bottom: 0.3rem; }
+        .widget-value { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--ocean-deep); }
+        .widget-sub { font-size: 0.85rem; color: #999; margin-top: 0.2rem; }
+
+        /* ── SECTIONS ── */
+        section { padding: 5rem 2rem; }
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            text-align: center; margin-bottom: 0.5rem;
+            color: var(--ocean-deep);
+        }
+        .section-subtitle {
+            text-align: center; font-size: 1.1rem;
+            color: #666; margin-bottom: 3rem; font-weight: 300;
+        }
+
+        /* ── CRAIG PHOTO BANNER ── */
+        .craig-banner {
+            background: linear-gradient(135deg, var(--sky) 0%, var(--white) 100%);
+            padding: 4rem 2rem;
+        }
+        .craig-banner-inner {
+            max-width: 1100px; margin: 0 auto;
+            display: grid; grid-template-columns: 1fr 1.5fr;
+            gap: 3rem; align-items: center;
+        }
+        .craig-banner-photo {
+            width: 100%; border-radius: 20px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+            object-fit: cover; aspect-ratio: 3/4;
+        }
+        .craig-banner-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: var(--ocean-deep); margin-bottom: 1rem;
+        }
+        .craig-banner-text p {
+            font-size: 1.1rem; line-height: 1.8;
+            color: #444; margin-bottom: 1rem;
+        }
+        .craig-banner-text .highlight {
+            background: linear-gradient(120deg, rgba(255,107,53,0.15), rgba(255,166,43,0.15));
+            padding: 1rem 1.5rem; border-radius: 12px;
+            border-left: 4px solid var(--sunset);
+            font-style: italic; color: #555;
+        }
+        @media (max-width: 768px) {
+            .craig-banner-inner { grid-template-columns: 1fr; }
+        }
+
+        /* ── ABOUT CARDS ── */
+        .about {
+            background: var(--white);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem; max-width: 1100px; margin: 0 auto;
+        }
+        .about-card {
+            background: var(--sky); border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: transform 0.3s;
+        }
+        .about-card:hover { transform: translateY(-6px); }
+        .about-card img {
+            width: 100%; height: 300px; object-fit: cover;
+            object-position: center center;
+        }
+        .about-card img.img-cheers {
+            object-position: center 30%;
+            height: 300px;
+        }
+        .about-card img.img-group {
+            object-position: center 25%;
+            height: 300px;
+        }
+        .about-card-body {
+            padding: 1.5rem 2rem 2rem;
+            text-align: center;
+        }
+        .about-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem; margin-bottom: 0.8rem;
+            color: var(--ocean-deep);
+        }
+        .about-card p { color: #555; line-height: 1.7; }
+
+        /* ── FAMILY PHOTOS ── */
+        .family-section {
+            background: linear-gradient(135deg, var(--sand) 0%, var(--sky) 100%);
+        }
+        .family-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem; max-width: 1100px; margin: 0 auto;
+        }
+        .family-card {
+            border-radius: 16px; overflow: hidden;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+            background: var(--white);
+        }
+        .family-card img {
+            width: 100%; height: 280px; object-fit: cover;
+        }
+        .family-card .caption {
+            padding: 1rem 1.2rem;
+            font-weight: 700; color: var(--ocean-deep);
+            font-size: 0.95rem;
+        }
+        .family-card .caption span {
+            display: block; font-weight: 300; color: #777;
+            font-size: 0.85rem; margin-top: 0.2rem;
+        }
+
+        /* ── ITINERARY ── */
+        .itinerary { background: var(--white); }
+        .timeline { max-width: 800px; margin: 0 auto; position: relative; }
+        .timeline::before {
+            content: ''; position: absolute; left: 24px; top: 0; bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--ocean), var(--sunset));
+            border-radius: 3px;
+        }
+        .timeline-day { margin-bottom: 2.5rem; }
+        .timeline-day-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem; color: var(--sunset);
+            padding-left: 60px; margin-bottom: 1rem; font-weight: 700;
+        }
+        .timeline-item {
+            display: flex; align-items: flex-start;
+            margin-bottom: 1.2rem; padding-left: 60px; position: relative;
+        }
+        .timeline-item::before {
+            content: ''; position: absolute; left: 17px; top: 6px;
+            width: 18px; height: 18px; background: var(--ocean);
+            border-radius: 50%; border: 3px solid var(--white);
+            box-shadow: 0 0 0 3px var(--ocean);
+        }
+        .timeline-time { min-width: 70px; font-weight: 700; color: var(--ocean-deep); font-size: 0.95rem; }
+        .timeline-content {
+            background: var(--sky); border-radius: 12px;
+            padding: 1rem 1.4rem; flex: 1; margin-left: 0.8rem;
+        }
+        .timeline-content h4 { font-family: 'Playfair Display', serif; color: var(--ocean-deep); margin-bottom: 0.3rem; }
+        .timeline-content p { font-size: 0.9rem; color: #555; }
+        .timeline-content .tag {
+            display: inline-block; font-size: 0.75rem;
+            background: var(--ocean); color: white;
+            padding: 0.15rem 0.6rem; border-radius: 20px;
+            margin-top: 0.4rem; margin-right: 0.3rem;
+        }
+
+        /* ── GALLERY ── */
+        .gallery {
+            background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean) 100%);
+            color: var(--white);
+        }
+        .gallery .section-title { color: var(--white); }
+        .gallery .section-subtitle { color: rgba(255,255,255,0.7); }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.2rem; max-width: 1200px; margin: 0 auto;
+        }
+        .gallery-item {
+            position: relative; border-radius: 16px;
+            overflow: hidden; aspect-ratio: 4/3; cursor: pointer;
+        }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .gallery-item:hover img { transform: scale(1.08); }
+        .gallery-item .caption-overlay {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            padding: 2rem 1.2rem 1rem;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            font-size: 0.95rem; font-weight: 700; letter-spacing: 0.5px;
+        }
+        .gallery-item:nth-child(1) { grid-row: span 2; aspect-ratio: auto; }
+
+        /* ── SURF FORECAST ── */
+        .surf-section { background: var(--sand); }
+        .forecast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1rem; max-width: 900px; margin: 0 auto;
+        }
+        .forecast-card {
+            background: var(--white); border-radius: 14px;
+            padding: 1.5rem 1rem; text-align: center;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+        }
+        .forecast-card .day { font-weight: 700; color: var(--ocean-deep); margin-bottom: 0.3rem; }
+        .forecast-card .wave { font-size: 2rem; margin: 0.5rem 0; }
+        .forecast-card .height { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--ocean); }
+        .forecast-card .wind { font-size: 0.85rem; color: #777; }
+        .forecast-card .rating { margin-top: 0.5rem; }
+
+        /* ── GOLF ── */
+        .golf-section { background: var(--white); }
+        .golf-courses {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem; max-width: 1100px; margin: 0 auto;
+        }
+        .golf-card {
+            border-radius: 20px; overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .golf-card:hover { transform: translateY(-6px); }
+        .golf-card img { width: 100%; height: 200px; object-fit: cover; }
+        .golf-card-body { padding: 1.5rem; }
+        .golf-card h3 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--palm); margin-bottom: 0.5rem; }
+        .golf-card p { color: #555; font-size: 0.95rem; line-height: 1.6; }
+        .golf-stats { display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
+        .golf-stat { font-size: 0.8rem; background: #e8f5e9; color: var(--palm); padding: 0.3rem 0.8rem; border-radius: 20px; font-weight: 700; }
+
+        /* ── PLAYLIST ── */
+        .playlist-section {
+            background: linear-gradient(135deg, #ff6b35 0%, #ffa62b 50%, #ff6b35 100%);
+            color: white; text-align: center;
+        }
+        .playlist-section .section-title { color: white; }
+        .playlist-section .section-subtitle { color: rgba(255,255,255,0.85); }
+        .playlist-wrap { max-width: 700px; margin: 0 auto; }
+        .playlist-item {
+            display: flex; align-items: center;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(8px);
+            border-radius: 12px; padding: 1rem 1.5rem;
+            margin-bottom: 0.8rem; transition: background 0.3s; cursor: pointer;
+        }
+        .playlist-item:hover { background: rgba(255,255,255,0.25); }
+        .playlist-num { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; min-width: 40px; }
+        .playlist-info { flex: 1; text-align: left; margin-left: 0.8rem; }
+        .playlist-info .song { font-weight: 700; font-size: 1.05rem; }
+        .playlist-info .artist { font-size: 0.85rem; opacity: 0.8; }
+        .playlist-note { font-size: 1.4rem; margin-left: auto; }
+
+        /* ── TRAVEL ── */
+        .travel-section { background: var(--sky); }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem; max-width: 1100px; margin: 0 auto;
+        }
+        .info-card {
+            background: var(--white); border-radius: 16px;
+            padding: 2rem; box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+        }
+        .info-card .icon { font-size: 2rem; margin-bottom: 0.8rem; }
+        .info-card h3 { font-family: 'Playfair Display', serif; color: var(--ocean-deep); margin-bottom: 0.6rem; }
+        .info-card p { color: #555; line-height: 1.7; font-size: 0.95rem; }
+
+        /* ── RSVP ── */
+        .rsvp-section {
+            background: linear-gradient(135deg, var(--ocean-deep), var(--palm));
+            color: white; text-align: center;
+        }
+        .rsvp-section .section-title { color: white; }
+        .rsvp-section .section-subtitle { color: rgba(255,255,255,0.75); }
+        .rsvp-form { max-width: 500px; margin: 0 auto; }
+        .rsvp-form input, .rsvp-form select, .rsvp-form textarea {
+            width: 100%; padding: 1rem 1.2rem; border: none;
+            border-radius: 12px; margin-bottom: 1rem;
+            font-family: 'Lato', sans-serif; font-size: 1rem;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(8px);
+            color: white; outline: none; transition: background 0.3s;
+        }
+        .rsvp-form input::placeholder, .rsvp-form textarea::placeholder { color: rgba(255,255,255,0.6); }
+        .rsvp-form input:focus, .rsvp-form select:focus, .rsvp-form textarea:focus { background: rgba(255,255,255,0.25); }
+        .rsvp-form select { appearance: none; cursor: pointer; }
+        .rsvp-form select option { color: var(--dark); }
+        .rsvp-btn {
+            background: var(--sunset); color: white; border: none;
+            padding: 1rem 3rem; font-size: 1.1rem; font-weight: 700;
+            border-radius: 50px; cursor: pointer;
+            text-transform: uppercase; letter-spacing: 2px;
+            transition: all 0.3s; font-family: 'Lato', sans-serif;
+        }
+        .rsvp-btn:hover { background: var(--sunset-glow); transform: scale(1.05); }
+        .rsvp-success { display: none; font-size: 1.2rem; margin-top: 1.5rem; }
+
+        /* ── FOOTER ── */
+        footer {
+            background: var(--dark); color: rgba(255,255,255,0.6);
+            text-align: center; padding: 3rem 2rem;
+        }
+        footer .logo { font-family: 'Pacifico', cursive; font-size: 1.8rem; color: var(--sunset-glow); margin-bottom: 0.8rem; }
+        footer p { font-size: 0.9rem; margin-bottom: 0.3rem; }
+        footer .hearts { font-size: 1.5rem; margin-top: 1rem; }
+
+        /* ── LIGHTBOX ── */
+        .lightbox {
+            display: none; position: fixed; inset: 0; z-index: 2000;
+            background: rgba(0,0,0,0.9);
+            align-items: center; justify-content: center; cursor: pointer;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox img {
+            max-width: 90vw; max-height: 90vh;
+            border-radius: 12px; box-shadow: 0 0 60px rgba(0,0,0,0.5);
+        }
+
+        /* ── FLOATING PARROT ── */
+        .floating-parrot {
+            position: fixed; bottom: 2rem; right: 2rem;
+            font-size: 3rem; z-index: 500;
+            animation: parrotBob 2s ease-in-out infinite;
+            cursor: pointer; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+        }
+        @keyframes parrotBob {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            nav { gap: 0.8rem; padding: 0.6rem 1rem; }
+            nav a { font-size: 0.75rem; }
+            .widgets { grid-template-columns: repeat(2, 1fr); margin-top: -2rem; padding: 1.5rem 1rem; }
+            .timeline::before { left: 14px; }
+            .timeline-item { padding-left: 45px; }
+            .timeline-item::before { left: 7px; width: 14px; height: 14px; }
+            .timeline-day-title { padding-left: 45px; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .gallery-item:nth-child(1) { grid-row: span 1; aspect-ratio: 4/3; }
+            .floating-parrot { font-size: 2rem; bottom: 1rem; right: 1rem; }
+            .hero-portrait { width: 150px; height: 195px; }
+            .hero-portrait-ring { inset: -10px; border-radius: 100px 100px 65px 65px; }
+            .hero::after { width: 300px; height: 300px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="#home">Home</a>
+    <a href="#about">Craig</a>
+    <a href="#family">Family</a>
+    <a href="#itinerary">Itinerary</a>
+    <a href="#gallery">Azores</a>
+    <a href="#surf">Surf</a>
+    <a href="#golf">Golf</a>
+    <a href="#playlist">Vibes</a>
+    <a href="#travel">Travel</a>
+    <a href="#rsvp">RSVP</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+    <div class="hero-badge-standalone">70 & Rad</div>
+    <h1>
+        Craig Lucio
+        <span>Turns Seventy!</span>
+    </h1>
+    <p class="hero-subtitle">Redondo Beach to the Azores</p>
+    <p class="hero-tagline">"Built houses for decades. Now it's time to ride waves and build memories."</p>
+    <p class="hero-location">🏄 The Azores, Portugal &nbsp;|&nbsp; 🌊 January 2027 &nbsp;|&nbsp; 🤙 Island Time</p>
+    <div class="scroll-hint">⬇</div>
+    <!-- Animated waves at bottom -->
+    <div class="hero-waves">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#f4e8c1" fill-opacity="0.4">
+                <animate attributeName="d" dur="8s" repeatCount="indefinite" values="
+                    M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60 L1440,120 L0,120Z;
+                    M0,60 C240,20 480,100 720,60 C960,20 1200,100 1440,60 L1440,120 L0,120Z;
+                    M0,60 C240,100 480,20 720,60 C960,100 1200,20 1440,60 L1440,120 L0,120Z"/>
+            </path>
+            <path fill="#f4e8c1" fill-opacity="0.6">
+                <animate attributeName="d" dur="6s" repeatCount="indefinite" values="
+                    M0,80 C320,110 640,50 960,80 C1120,95 1280,65 1440,80 L1440,120 L0,120Z;
+                    M0,80 C320,50 640,110 960,80 C1120,65 1280,95 1440,80 L1440,120 L0,120Z;
+                    M0,80 C320,110 640,50 960,80 C1120,95 1280,65 1440,80 L1440,120 L0,120Z"/>
+            </path>
+            <path fill="#f4e8c1">
+                <animate attributeName="d" dur="4s" repeatCount="indefinite" values="
+                    M0,95 C360,115 720,85 1080,100 C1260,108 1350,92 1440,100 L1440,120 L0,120Z;
+                    M0,100 C360,85 720,115 1080,95 C1260,88 1350,108 1440,95 L1440,120 L0,120Z;
+                    M0,95 C360,115 720,85 1080,100 C1260,108 1350,92 1440,100 L1440,120 L0,120Z"/>
+            </path>
+        </svg>
+    </div>
+</section>
+
+<!-- WIDGETS -->
+<div class="widgets">
+    <div class="widget">
+        <div class="widget-icon">⏳</div>
+        <div class="widget-label">Countdown</div>
+        <div class="widget-value" id="countdown-days">--</div>
+        <div class="widget-sub" id="countdown-sub">days to go</div>
+    </div>
+    <div class="widget">
+        <div class="widget-icon">🌡️</div>
+        <div class="widget-label">Azores Weather</div>
+        <div class="widget-value">72°F</div>
+        <div class="widget-sub">Mild winter, ocean breeze</div>
+    </div>
+    <div class="widget">
+        <div class="widget-icon">🌊</div>
+        <div class="widget-label">Water Temp</div>
+        <div class="widget-value">68°F</div>
+        <div class="widget-sub">Perfect for surfing</div>
+    </div>
+    <div class="widget">
+        <div class="widget-icon">🏌️</div>
+        <div class="widget-label">Golf Courses</div>
+        <div class="widget-value">2</div>
+        <div class="widget-sub">World-class ocean-view courses</div>
+    </div>
+    <div class="widget">
+        <div class="widget-icon">🌿</div>
+        <div class="widget-label">Relaxation Level</div>
+        <div class="widget-value">ELEVATED</div>
+        <div class="widget-sub">Craig's natural state</div>
+    </div>
+    <div class="widget">
+        <div class="widget-icon">🍹</div>
+        <div class="widget-label">Vibe Level</div>
+        <div class="widget-value">MAX</div>
+        <div class="widget-sub">Margaritaville activated</div>
+    </div>
+</div>
+
+<!-- ABOUT CRAIG — BIG INTRO -->
+<section class="craig-banner" id="about">
+    <div class="craig-banner-inner">
+        <img class="craig-banner-photo" src="photos/craig-tropical.jpeg" alt="Craig in the sun">
+        <div class="craig-banner-text">
+            <h2>The Man, The Legend, The General Contractor</h2>
+            <p>
+                For decades, Craig Lucio has been building beautiful things in the South Bay — homes, relationships, and an absolutely legendary reputation for good times. Based out of <strong>Redondo Beach</strong>, this general contractor has spent a lifetime turning blueprints into dream homes and weekends into unforgettable stories.
+            </p>
+            <p>
+                Now it's time for the man who built it all to kick back in the middle of the Atlantic, surrounded by the people he loves. Golf clubs? Packed. Surfboard? Waxed. Hawaiian shirt? Obviously. Rolling papers? ...no comment.
+            </p>
+            <div class="highlight">
+                "Some guys retire and take up gardening. Craig's taking his 70th birthday to a volcanic island in the middle of the ocean. That's the kind of energy we're celebrating."
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT CARDS WITH PHOTOS -->
+<section class="about">
+    <h2 class="section-title">What Makes Craig, Craig</h2>
+    <p class="section-subtitle">Three pillars of a life well-lived</p>
+    <div class="about-grid">
+        <div class="about-card">
+            <img src="photos/craig-boat-1.jpeg" alt="Craig on a boat">
+            <div class="about-card-body">
+                <h3>The Captain</h3>
+                <p>Whether he's behind the wheel of a boat or running a job site, Craig takes command with a smile. He's spent years on the water — and the Azores' Atlantic coast is calling.</p>
+            </div>
+        </div>
+        <div class="about-card">
+            <img class="img-cheers" src="photos/craig-cheers.jpeg" alt="Cheers with Craig">
+            <div class="about-card-body">
+                <h3>The Entertainer</h3>
+                <p>If there's a toast being made, Craig is at the center of it. From Redondo Beach backyard hangouts to this Azorean adventure, the man knows how to bring people together. Glasses up!</p>
+            </div>
+        </div>
+        <div class="about-card">
+            <img class="img-group" src="photos/craig-group-fun.jpeg" alt="Craig's family having fun">
+            <div class="about-card-body">
+                <h3>The Family Man</h3>
+                <p>His daughters keep him young (and keep him on his toes), and grandkids Evie and Nathan keep the laughter coming. This trip is for the whole Lucio crew.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAMILY PHOTOS -->
+<section class="family-section" id="family">
+    <h2 class="section-title">The Lucio Family</h2>
+    <p class="section-subtitle">The reason this party is happening</p>
+    <div class="family-grid">
+        <div class="family-card">
+            <img src="photos/craig-baseball.jpeg" alt="Craig and Evie at the ballgame">
+            <div class="caption">
+                Grandpa Craig & Evie
+                <span>Ballgame hangs with his granddaughter</span>
+            </div>
+        </div>
+        <div class="family-card">
+            <img src="photos/craig-boat-2.jpeg" alt="Craig and Nathan on the boat">
+            <div class="caption">
+                Captain Craig & Nathan
+                <span>Teaching the next generation the ropes</span>
+            </div>
+        </div>
+        <div class="family-card">
+            <img src="photos/craig-heic.jpeg" alt="Craig on the water">
+            <div class="caption">
+                Life on the Water
+                <span>Craig in his happy place</span>
+            </div>
+        </div>
+        <div class="family-card">
+            <img src="photos/craig-cathedral.jpeg" alt="Craig and his daughter">
+            <div class="caption">
+                Craig & Daughter
+                <span>World travelers</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ITINERARY -->
+<section class="itinerary" id="itinerary">
+    <h2 class="section-title">The Birthday Itinerary</h2>
+    <p class="section-subtitle">Five days of island paradise</p>
+    <div class="timeline">
+        <!-- Day 1 -->
+        <div class="timeline-day">
+            <div class="timeline-day-title">Day 1 — Arrival & Welcome</div>
+            <div class="timeline-item">
+                <span class="timeline-time">2:00 PM</span>
+                <div class="timeline-content">
+                    <h4>Arrive in Ponta Delgada</h4>
+                    <p>Touch down on Sao Miguel island. Breathe in that Atlantic air. A long way from Redondo, and worth every mile.</p>
+                    <span class="tag">Travel</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-time">5:00 PM</span>
+                <div class="timeline-content">
+                    <h4>Hotel Check-in & Settle In</h4>
+                    <p>Drop your bags at the oceanfront resort. Craig will already be on his balcony. You know this.</p>
+                    <span class="tag">Resort</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-time">7:30 PM</span>
+                <div class="timeline-content">
+                    <h4>Welcome Dinner — Margaritaville Night</h4>
+                    <p>Kick off the celebration with a Buffett-themed dinner on the terrace. Margaritas, island vibes, Hawaiian shirts required. Craig will be in an "elevated" mood.</p>
+                    <span class="tag">Dinner</span><span class="tag">Margaritaville</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="timeline-day">
+            <div class="timeline-day-title">Day 2 — Golf Day</div>
+            <div class="timeline-item">
+                <span class="timeline-time">8:00 AM</span>
+                <div class="timeline-content">
+                    <h4>Breakfast with a View</h4>
+                    <p>Fresh pasteis de nata, local fruits, and strong Portuguese coffee overlooking the ocean.</p>
+                    <span class="tag">Breakfast</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-time">9:30 AM</span>
+                <div class="timeline-content">
+                    <h4>Batalha Golf Course</h4>
+                    <p>18 holes on one of Europe's most stunning courses. Ocean cliffs, volcanic landscapes, and fairways that'll make you forget your handicap. Craig's been building houses for years — now he's building birdies.</p>
+                    <span class="tag">Golf</span><span class="tag">Ocean Views</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-time">3:00 PM</span>
+                <div class="timeline-content">
+                    <h4>Furnas Hot Springs</h4>
+                    <p>Soak those golf muscles in natural volcanic hot springs surrounded by lush gardens. The Azores' version of a Redondo Beach hot tub — but better.</p>
+                    <span class="tag">Relaxation</span><span class="tag">Nature</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-time">7:00 PM</span>
+                <div class="timeline-content">
+                    <h4>Cozido Dinner</h4>
+                    <p>Traditional Azorean stew cooked underground by volcanic heat. You literally can't get this anywhere else. The only thing more slow-cooked is Craig on a Sunday afternoon.</p>
+                    <span class="tag">Dinner</span><span class="tag">Local Cuisine</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="timeline-day">
+            <div class="timeline-day-title">Day 3 — Surf & Explore</div>
+            <div class="timeline-item">
+                <span class="timeline-time">7:00 AM</span>
+                <div class="timeline-content">
+                    <h4>Sunrise Surf Session</h4>
+                    <p>Hit the waves at Santa Barbara Beach — the Azores' premier surf spot. Consistent Atlantic swells and uncrowded lineups. Craig's been riding waves since before half of us were born.</p>
+                    <span class="tag">Surfing</span><span class="tag">Beach</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-time">11:00 AM</span>
+                <div class="timeline-content">
+                    <h4>Sete Cidades Twin Lakes</h4>
+                    <p>Visit the iconic green and blue twin crater lakes. One of the most photographed spots in all of Portugal.</p>
+                    <span class="tag">Nature</span><span class="tag">Scenic</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-time">2:00 PM</span>
+                <div class="timeline-content">
+                    <h4>Whale Watching Expedition</h4>
+                    <p>The Azores are one of the world's top whale watching destinations. Sperm whales, dolphins, and more. Captain Craig is in his element.</p>
+                    <span class="tag">Adventure</span><span class="tag">Ocean</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-time">7:30 PM</span>
+                <div class="timeline-content">
+                    <h4>Beachside BBQ</h4>
+                    <p>Grilled fresh catch, local wines, and live music on the sand. Toes in the sand, drink in hand, good vibes fully... cultivated.</p>
+                    <span class="tag">Dinner</span><span class="tag">Margaritaville</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 4 -->
+        <div class="timeline-day">
+            <div class="timeline-day-title">Day 4 — The Big 7-0</div>
+            <div class="timeline-item">
+                <span class="timeline-time">9:00 AM</span>
+                <div class="timeline-content">
+                    <h4>Birthday Brunch</h4>
+                    <p>Sleep in, birthday boy. Then enjoy a lavish brunch spread with champagne toasts. Evie and Nathan are in charge of the birthday crown.</p>
+                    <span class="tag">Birthday</span><span class="tag">Brunch</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-time">11:00 AM</span>
+                <div class="timeline-content">
+                    <h4>Free Time — Your Choice!</h4>
+                    <p>Extra round of golf? More surfing? Hot springs? A nap in a hammock? A "nature walk" with Craig? It's your day!</p>
+                    <span class="tag">Leisure</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-time">4:00 PM</span>
+                <div class="timeline-content">
+                    <h4>Sunset Boat Cruise</h4>
+                    <p>Private catamaran cruise along the coast. Champagne, snacks, and the most epic sunset views. Craig at the helm, obviously.</p>
+                    <span class="tag">Celebration</span><span class="tag">Cruise</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-time">8:00 PM</span>
+                <div class="timeline-content">
+                    <h4>The Grand Birthday Dinner</h4>
+                    <p>An unforgettable evening at a cliffside restaurant. Seven-course tasting menu, speeches, toasts, and a surprise or two. Happy 70th, Craig — you don't look a day over 69.</p>
+                    <span class="tag">Birthday</span><span class="tag">Gala Dinner</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 5 -->
+        <div class="timeline-day">
+            <div class="timeline-day-title">Day 5 — Farewell</div>
+            <div class="timeline-item">
+                <span class="timeline-time">9:00 AM</span>
+                <div class="timeline-content">
+                    <h4>Farewell Breakfast</h4>
+                    <p>One last morning in paradise. Swap stories, exchange hugs, and soak in the final views.</p>
+                    <span class="tag">Breakfast</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <span class="timeline-time">12:00 PM</span>
+                <div class="timeline-content">
+                    <h4>Departure</h4>
+                    <p>Until next time, Azores. What a trip. What a birthday. What a life. Back to Redondo — but the vibes travel with us.</p>
+                    <span class="tag">Travel</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+    <h2 class="section-title">The Azores Awaits</h2>
+    <p class="section-subtitle">A volcanic paradise in the middle of the Atlantic</p>
+    <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="https://images.unsplash.com/photo-1555881400-74d7acaacd6b?w=800&q=80" alt="Sete Cidades crater lakes" loading="lazy">
+            <div class="caption-overlay">Sete Cidades — Twin Crater Lakes</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="https://images.unsplash.com/photo-1596394723269-e8e5b2a33765?w=800&q=80" alt="Azores coastline" loading="lazy">
+            <div class="caption-overlay">Dramatic Volcanic Coastline</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="https://images.unsplash.com/photo-1590077428593-a55bb07c4665?w=800&q=80" alt="Azores green landscape" loading="lazy">
+            <div class="caption-overlay">Lush Green Rolling Hills</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80" alt="Surfing waves" loading="lazy">
+            <div class="caption-overlay">World-Class Atlantic Surf</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="Hot springs" loading="lazy">
+            <div class="caption-overlay">Natural Volcanic Hot Springs</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=800&q=80" alt="Ocean sunset Azores" loading="lazy">
+            <div class="caption-overlay">Atlantic Sunset Magic</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80" alt="Whale watching" loading="lazy">
+            <div class="caption-overlay">Whale Watching Adventures</div>
+        </div>
+        <div class="gallery-item" onclick="openLightbox(this)">
+            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80" alt="Azores viewpoint" loading="lazy">
+            <div class="caption-overlay">Miradouro Breathtaking Views</div>
+        </div>
+    </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Gallery preview">
+</div>
+
+<!-- SURF FORECAST -->
+<section class="surf-section" id="surf">
+    <h2 class="section-title">Surf Forecast</h2>
+    <p class="section-subtitle">Santa Barbara Beach, Sao Miguel — predicted conditions</p>
+    <div class="forecast-grid">
+        <div class="forecast-card">
+            <div class="day">Day 1</div>
+            <div class="wave">🌊</div>
+            <div class="height">3-4 ft</div>
+            <div class="wind">NW 8 mph</div>
+            <div class="rating">⭐⭐⭐⭐</div>
+        </div>
+        <div class="forecast-card">
+            <div class="day">Day 2</div>
+            <div class="wave">🏄</div>
+            <div class="height">4-5 ft</div>
+            <div class="wind">W 6 mph</div>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+        </div>
+        <div class="forecast-card">
+            <div class="day">Day 3</div>
+            <div class="wave">🌊</div>
+            <div class="height">5-6 ft</div>
+            <div class="wind">SW 10 mph</div>
+            <div class="rating">⭐⭐⭐⭐⭐</div>
+        </div>
+        <div class="forecast-card">
+            <div class="day">Day 4</div>
+            <div class="wave">🌊</div>
+            <div class="height">3-4 ft</div>
+            <div class="wind">W 7 mph</div>
+            <div class="rating">⭐⭐⭐⭐</div>
+        </div>
+        <div class="forecast-card">
+            <div class="day">Day 5</div>
+            <div class="wave">🌊</div>
+            <div class="height">2-3 ft</div>
+            <div class="wind">NW 5 mph</div>
+            <div class="rating">⭐⭐⭐</div>
+        </div>
+    </div>
+</section>
+
+<!-- GOLF -->
+<section class="golf-section" id="golf">
+    <h2 class="section-title">Golf in Paradise</h2>
+    <p class="section-subtitle">Ocean-cliff fairways with volcanic backdrops</p>
+    <div class="golf-courses">
+        <div class="golf-card">
+            <img src="https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?w=800&q=80" alt="Batalha Golf Course">
+            <div class="golf-card-body">
+                <h3>Batalha Golf Course</h3>
+                <p>The crown jewel of Azorean golf. 27 holes carved into volcanic cliffs with jaw-dropping ocean panoramas on every hole. Craig builds dream homes — this course was built for dream rounds.</p>
+                <div class="golf-stats">
+                    <span class="golf-stat">27 Holes</span>
+                    <span class="golf-stat">Par 72</span>
+                    <span class="golf-stat">Ocean Views</span>
+                </div>
+            </div>
+        </div>
+        <div class="golf-card">
+            <img src="https://images.unsplash.com/photo-1535131749006-b7f58c99034b?w=800&q=80" alt="Furnas Golf Course">
+            <div class="golf-card-body">
+                <h3>Furnas Golf Course</h3>
+                <p>Set in the lush Furnas Valley surrounded by hot springs and botanical gardens. Every hole is framed by hydrangeas, cryptomeria trees, and volcanic terrain. A very... green experience.</p>
+                <div class="golf-stats">
+                    <span class="golf-stat">18 Holes</span>
+                    <span class="golf-stat">Par 72</span>
+                    <span class="golf-stat">Valley Setting</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MARGARITAVILLE PLAYLIST -->
+<section class="playlist-section" id="playlist">
+    <h2 class="section-title">The Official Playlist</h2>
+    <p class="section-subtitle">Craig's Margaritaville Birthday Mix</p>
+    <div class="playlist-wrap">
+        <div class="playlist-item">
+            <span class="playlist-num">1</span>
+            <div class="playlist-info"><div class="song">Margaritaville</div><div class="artist">Jimmy Buffett</div></div>
+            <span class="playlist-note">🎵</span>
+        </div>
+        <div class="playlist-item">
+            <span class="playlist-num">2</span>
+            <div class="playlist-info"><div class="song">Cheeseburger in Paradise</div><div class="artist">Jimmy Buffett</div></div>
+            <span class="playlist-note">🍔</span>
+        </div>
+        <div class="playlist-item">
+            <span class="playlist-num">3</span>
+            <div class="playlist-info"><div class="song">Fins</div><div class="artist">Jimmy Buffett</div></div>
+            <span class="playlist-note">🦈</span>
+        </div>
+        <div class="playlist-item">
+            <span class="playlist-num">4</span>
+            <div class="playlist-info"><div class="song">Wipe Out</div><div class="artist">The Surfaris</div></div>
+            <span class="playlist-note">🏄</span>
+        </div>
+        <div class="playlist-item">
+            <span class="playlist-num">5</span>
+            <div class="playlist-info"><div class="song">Kokomo</div><div class="artist">The Beach Boys</div></div>
+            <span class="playlist-note">🌴</span>
+        </div>
+        <div class="playlist-item">
+            <span class="playlist-num">6</span>
+            <div class="playlist-info"><div class="song">Come Monday</div><div class="artist">Jimmy Buffett</div></div>
+            <span class="playlist-note">🌅</span>
+        </div>
+        <div class="playlist-item">
+            <span class="playlist-num">7</span>
+            <div class="playlist-info"><div class="song">Three Little Birds</div><div class="artist">Bob Marley</div></div>
+            <span class="playlist-note">🐦</span>
+        </div>
+        <div class="playlist-item">
+            <span class="playlist-num">8</span>
+            <div class="playlist-info"><div class="song">Volcano</div><div class="artist">Jimmy Buffett</div></div>
+            <span class="playlist-note">🌋</span>
+        </div>
+        <div class="playlist-item">
+            <span class="playlist-num">9</span>
+            <div class="playlist-info"><div class="song">Surfin' U.S.A.</div><div class="artist">The Beach Boys</div></div>
+            <span class="playlist-note">🌊</span>
+        </div>
+        <div class="playlist-item">
+            <span class="playlist-num">10</span>
+            <div class="playlist-info"><div class="song">It's Five O'Clock Somewhere</div><div class="artist">Alan Jackson & Jimmy Buffett</div></div>
+            <span class="playlist-note">🍹</span>
+        </div>
+        <div class="playlist-item">
+            <span class="playlist-num">11</span>
+            <div class="playlist-info"><div class="song">Brown Sugar</div><div class="artist">The Rolling Stones</div></div>
+            <span class="playlist-note">🎸</span>
+        </div>
+        <div class="playlist-item">
+            <span class="playlist-num">12</span>
+            <div class="playlist-info"><div class="song">Heart of Gold</div><div class="artist">Neil Young</div></div>
+            <span class="playlist-note">💛</span>
+        </div>
+        <div class="playlist-item">
+            <span class="playlist-num">13</span>
+            <div class="playlist-info"><div class="song">Sympathy for the Devil</div><div class="artist">The Rolling Stones</div></div>
+            <span class="playlist-note">😈</span>
+        </div>
+        <div class="playlist-item">
+            <span class="playlist-num">14</span>
+            <div class="playlist-info"><div class="song">Harvest Moon</div><div class="artist">Neil Young</div></div>
+            <span class="playlist-note">🌙</span>
+        </div>
+    </div>
+</section>
+
+<!-- TRAVEL INFO -->
+<section class="travel-section" id="travel">
+    <h2 class="section-title">Travel Essentials</h2>
+    <p class="section-subtitle">Everything you need to get from Redondo to the Azores</p>
+    <div class="info-grid">
+        <div class="info-card">
+            <div class="icon">✈️</div>
+            <h3>Getting There</h3>
+            <p>Fly into Ponta Delgada (PDL) on Sao Miguel Island. Direct flights from Boston, New York, Toronto, and Lisbon. Budget carriers like Azores Airlines and SATA offer great deals.</p>
+        </div>
+        <div class="info-card">
+            <div class="icon">🏨</div>
+            <h3>Accommodation</h3>
+            <p>We've reserved a block of rooms at an oceanfront resort in Ponta Delgada. Details will be shared with your RSVP confirmation.</p>
+        </div>
+        <div class="info-card">
+            <div class="icon">🛂</div>
+            <h3>Passport & Visa</h3>
+            <p>The Azores are part of Portugal (EU). US & Canadian citizens need a valid passport (no visa for stays under 90 days). Make sure yours doesn't expire within 6 months of travel.</p>
+        </div>
+        <div class="info-card">
+            <div class="icon">💶</div>
+            <h3>Currency & Tips</h3>
+            <p>Currency is the Euro. Credit cards widely accepted. Tipping 5-10% is customary. ATMs available throughout Ponta Delgada.</p>
+        </div>
+        <div class="info-card">
+            <div class="icon">🧳</div>
+            <h3>What to Pack</h3>
+            <p>Layers! Azores weather can shift. Bring swimwear, golf attire, a light rain jacket, comfortable walking shoes, and your best Hawaiian shirt. Leave the "herbs" at home — Craig has it covered.</p>
+        </div>
+        <div class="info-card">
+            <div class="icon">🕐</div>
+            <h3>Time Zone</h3>
+            <p>Azores Time (AZOT) is UTC-1, which is 4 hours ahead of US Eastern / 1 hour behind Lisbon. You'll gain a few hours of paradise!</p>
+        </div>
+    </div>
+</section>
+
+<!-- RSVP -->
+<section class="rsvp-section" id="rsvp">
+    <h2 class="section-title">Join the Celebration</h2>
+    <p class="section-subtitle">RSVP for Craig's 70th Birthday in the Azores</p>
+    <div class="rsvp-form" id="rsvp-form">
+        <input type="text" placeholder="Your Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <select>
+            <option value="" disabled selected>Number of Guests</option>
+            <option>1 — Just me!</option>
+            <option>2 — Bringing my +1</option>
+            <option>3+ — The whole crew</option>
+        </select>
+        <select>
+            <option value="" disabled selected>Are you golfing?</option>
+            <option>Absolutely — count me in!</option>
+            <option>I'll ride the cart & drink</option>
+            <option>I'll be at the beach instead</option>
+        </select>
+        <select>
+            <option value="" disabled selected>Surfing?</option>
+            <option>Born to surf!</option>
+            <option>I'll try — what could go wrong?</option>
+            <option>I'll watch from shore with a margarita</option>
+        </select>
+        <textarea rows="3" placeholder="Special requests, dietary needs, or a birthday message for Craig..."></textarea>
+        <button class="rsvp-btn" onclick="submitRSVP()">Count Me In!</button>
+        <div class="rsvp-success" id="rsvp-success">
+            You're in! We'll send details to your email. See you in the Azores!
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="logo">Craig Lucio's 70th</div>
+    <p>A once-in-a-lifetime celebration in the Azores, Portugal</p>
+    <p>January 2027 — From Redondo Beach to Sao Miguel Island</p>
+    <div class="hearts">🌴 🍹 🏌️ 🏄 🌊 🌋 🎂</div>
+    <p style="margin-top: 1.5rem; font-size: 0.8rem;">Made with love for Craig's big 7-0</p>
+</footer>
+
+<!-- FLOATING PARROT -->
+<div class="floating-parrot" onclick="parrotClick()" title="Click for a surprise!">🦜</div>
+
+<script>
+    // ── COUNTDOWN ──
+    function updateCountdown() {
+        const party = new Date('2027-01-01T00:00:00');
+        const now = new Date();
+        const diff = party - now;
+        const days = Math.max(0, Math.ceil(diff / (1000 * 60 * 60 * 24)));
+        document.getElementById('countdown-days').textContent = days;
+        if (days === 0) {
+            document.getElementById('countdown-sub').textContent = "It's party time!";
+        } else if (days === 1) {
+            document.getElementById('countdown-sub').textContent = "day to go!";
+        } else {
+            document.getElementById('countdown-sub').textContent = "days to go";
+        }
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 60000);
+
+    // ── LIGHTBOX ──
+    function openLightbox(el) {
+        const img = el.querySelector('img');
+        document.getElementById('lightbox-img').src = img.src;
+        document.getElementById('lightbox').classList.add('active');
+    }
+    function closeLightbox() {
+        document.getElementById('lightbox').classList.remove('active');
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    // ── RSVP ──
+    function submitRSVP() {
+        const form = document.getElementById('rsvp-form');
+        const inputs = form.querySelectorAll('input, select');
+        let valid = true;
+        inputs.forEach(i => { if (!i.value) valid = false; });
+        if (valid) {
+            document.getElementById('rsvp-success').style.display = 'block';
+            form.querySelectorAll('input, select, textarea').forEach(el => el.style.display = 'none');
+            document.querySelector('.rsvp-btn').style.display = 'none';
+        } else {
+            alert('Please fill in all fields!');
+        }
+    }
+
+    // ── PARROT EASTER EGG ──
+    const parrotQuotes = [
+        "🍹 It's 5 o'clock somewhere!",
+        "🎂 70 is the new 50, baby!",
+        "🏌️ Fore! ...I mean, cheers!",
+        "🏄 Hang ten, Craig!",
+        "🌴 Wastin' away again in Margaritaville...",
+        "🎉 Happy Birthday, Legend!",
+        "🌋 This party is about to erupt!",
+        "🦜 Polly wants a margarita!",
+        "🌿 Craig's feeling... elevated.",
+        "🔨 He built this party from the ground up!",
+        "🏠 The only thing Craig can't build is a boring party.",
+        "🌊 Redondo to the Azores — what a ride!"
+    ];
+    function parrotClick() {
+        const quote = parrotQuotes[Math.floor(Math.random() * parrotQuotes.length)];
+        const toast = document.createElement('div');
+        toast.textContent = quote;
+        toast.style.cssText = `
+            position: fixed; bottom: 6rem; right: 2rem; background: white;
+            color: #1a1a2e; padding: 1rem 1.5rem; border-radius: 12px;
+            font-weight: 700; font-size: 1rem; z-index: 600;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            animation: fadeInUp 0.3s ease;
+        `;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 2500);
+    }
+
+    // ── SCROLL ANIMATIONS ──
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+    `;
+    document.head.appendChild(style);
+
+    document.querySelectorAll('.about-card, .timeline-item, .gallery-item, .forecast-card, .golf-card, .playlist-item, .info-card, .family-card').forEach(el => {
+        el.classList.add('fade-in');
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ── NAV ACTIVE STATE ──
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('nav a');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            if (scrollY >= sectionTop) current = section.getAttribute('id');
+        });
+        navLinks.forEach(link => {
+            link.style.color = link.getAttribute('href') === '#' + current ? '#ffa62b' : 'white';
+        });
+    });
+</script>
+
+</body>
+</html>
