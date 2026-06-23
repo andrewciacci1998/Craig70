@@ -1100,33 +1100,37 @@
 <section class="rsvp-section" id="rsvp">
     <h2 class="section-title">Join the Celebration</h2>
     <p class="section-subtitle">RSVP for Craig's 70th Birthday in the Azores</p>
-    <div class="rsvp-form" id="rsvp-form">
-        <input type="text" placeholder="Your Full Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <select>
+    <form class="rsvp-form" id="rsvp-form" onsubmit="submitRSVP(event); return false;">
+        <input type="text" name="name" placeholder="Your Full Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <select name="guests" required>
             <option value="" disabled selected>Number of Guests</option>
             <option>1 — Just me!</option>
             <option>2 — Bringing my +1</option>
             <option>3+ — The whole crew</option>
         </select>
-        <select>
+        <select name="golfing" required>
             <option value="" disabled selected>Are you golfing?</option>
             <option>Absolutely — count me in!</option>
             <option>I'll ride the cart & drink</option>
             <option>I'll be at the beach instead</option>
         </select>
-        <select>
+        <select name="surfing" required>
             <option value="" disabled selected>Surfing?</option>
             <option>Born to surf!</option>
             <option>I'll try — what could go wrong?</option>
             <option>I'll watch from shore with a margarita</option>
         </select>
-        <textarea rows="3" placeholder="Special requests, dietary needs, or a birthday message for Craig..."></textarea>
-        <button class="rsvp-btn" onclick="submitRSVP()">Count Me In!</button>
+        <textarea name="message" rows="3" placeholder="Special requests, dietary needs, or a birthday message for Craig..."></textarea>
+        <input type="hidden" name="_subject" value="New RSVP — Craig's 70th in the Azores">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+        <button type="submit" class="rsvp-btn">Count Me In!</button>
         <div class="rsvp-success" id="rsvp-success">
-            You're in! We'll send details to your email. See you in the Azores!
+            You're in! Craig got your RSVP — he'll be in touch with details. See you in the Azores!
         </div>
-    </div>
+    </form>
 </section>
 
 <!-- FOOTER -->
@@ -1174,17 +1178,26 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
     // ── RSVP ──
-    function submitRSVP() {
+    async function submitRSVP(event) {
+        if (event) event.preventDefault();
         const form = document.getElementById('rsvp-form');
-        const inputs = form.querySelectorAll('input, select');
-        let valid = true;
-        inputs.forEach(i => { if (!i.value) valid = false; });
-        if (valid) {
+        const btn = document.querySelector('.rsvp-btn');
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+        try {
+            const res = await fetch('https://formsubmit.co/ajax/vinkalucio@gmail.com', {
+                method: 'POST',
+                headers: { 'Accept': 'application/json' },
+                body: new FormData(form)
+            });
+            if (!res.ok) throw new Error('Submission failed');
             document.getElementById('rsvp-success').style.display = 'block';
             form.querySelectorAll('input, select, textarea').forEach(el => el.style.display = 'none');
-            document.querySelector('.rsvp-btn').style.display = 'none';
-        } else {
-            alert('Please fill in all fields!');
+            btn.style.display = 'none';
+        } catch (e) {
+            btn.disabled = false;
+            btn.textContent = 'Count Me In!';
+            alert('Something went wrong sending your RSVP. Please email Craig directly at vinkalucio@gmail.com.');
         }
     }
 
